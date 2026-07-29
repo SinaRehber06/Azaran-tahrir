@@ -1216,9 +1216,11 @@ button, input, select, textarea {
     backdrop-filter: blur(var(--glass-blur));
     border-right: 1px solid var(--border-color);
     box-shadow: var(--glass-shadow);
-    transition: left var(--transition-smooth);
+    transition: left var(--transition-smooth), visibility var(--transition-smooth);
     display: flex;
     flex-direction: column;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 @media (max-width: 480px) {
@@ -1230,6 +1232,8 @@ button, input, select, textarea {
 
 .cart-drawer.active {
     left: 0;
+    visibility: visible;
+    pointer-events: all;
 }
 
 .cart-header {
@@ -1870,13 +1874,17 @@ button, input, select, textarea {
     backdrop-filter: blur(var(--glass-blur));
     border-left: 1px solid var(--border-color);
     box-shadow: var(--glass-shadow);
-    transition: right var(--transition-smooth);
+    transition: right var(--transition-smooth), visibility var(--transition-smooth);
     display: flex;
     flex-direction: column;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .mobile-drawer.active {
     right: 0;
+    visibility: visible;
+    pointer-events: all;
 }
 
 .mobile-drawer-header {
