@@ -1207,7 +1207,7 @@ button, input, select, textarea {
 .cart-drawer {
     position: fixed;
     top: 0;
-    left: 0; /* Left side slide out */
+    left: -420px; /* Hide by shifting left */
     bottom: 0;
     width: 100%;
     max-width: 420px;
@@ -1216,14 +1216,20 @@ button, input, select, textarea {
     backdrop-filter: blur(var(--glass-blur));
     border-right: 1px solid var(--border-color);
     box-shadow: var(--glass-shadow);
-    transform: translateX(-100%);
-    transition: transform var(--transition-smooth);
+    transition: left var(--transition-smooth);
     display: flex;
     flex-direction: column;
 }
 
+@media (max-width: 480px) {
+    .cart-drawer {
+        left: -100%;
+        max-width: 100%;
+    }
+}
+
 .cart-drawer.active {
-    transform: translateX(0);
+    left: 0;
 }
 
 .cart-header {
@@ -1856,7 +1862,7 @@ button, input, select, textarea {
 .mobile-drawer {
     position: fixed;
     top: 0;
-    right: 0; /* Nav drawer slides from right for Persian RTL */
+    right: -280px; /* Hide by shifting right */
     bottom: 0;
     width: 280px;
     z-index: 201;
@@ -1864,14 +1870,13 @@ button, input, select, textarea {
     backdrop-filter: blur(var(--glass-blur));
     border-left: 1px solid var(--border-color);
     box-shadow: var(--glass-shadow);
-    transform: translateX(100%);
-    transition: transform var(--transition-smooth);
+    transition: right var(--transition-smooth);
     display: flex;
     flex-direction: column;
 }
 
 .mobile-drawer.active {
-    transform: translateX(0);
+    right: 0;
 }
 
 .mobile-drawer-header {
