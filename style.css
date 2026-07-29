@@ -1913,12 +1913,39 @@ button, input, select, textarea {
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .main-content {
+        margin-top: 136px; /* Account for wrapped header height */
+    }
+
+    .header-container {
+        height: auto;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .search-wrapper {
+        order: 3;
+        flex: 1 0 100%;
+        max-width: 100%;
+    }
+
+    .header-actions {
+        order: 2;
+    }
+
+    .mobile-menu-toggle {
+        order: 2;
+        display: block;
+    }
+
     .nav-links, .header-actions .login-btn {
         display: none;
-    }
-    
-    .mobile-menu-toggle {
-        display: block;
     }
     
     .hero-grid {
@@ -1929,6 +1956,10 @@ button, input, select, textarea {
     
     .hero-content {
         align-items: center;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
     }
     
     .hero-buttons {
@@ -1945,14 +1976,24 @@ button, input, select, textarea {
     }
     
     .filters-sidebar {
-        display: none; /* Can be toggled or styled inline on mobile, hiding for clean simplicity */
+        display: none; /* Hidden on mobile for clean simplicity */
     }
     
+    .modal-content {
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+    }
+
     .modal-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
+    .bank-card {
+        width: 100%;
+        max-width: 280px;
+    }
+
     .about-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
