@@ -1207,7 +1207,7 @@ button, input, select, textarea {
 .cart-drawer {
     position: fixed;
     top: 0;
-    left: -420px; /* Hide by shifting left */
+    left: 0;
     bottom: 0;
     width: 100%;
     max-width: 420px;
@@ -1216,22 +1216,25 @@ button, input, select, textarea {
     backdrop-filter: blur(var(--glass-blur));
     border-right: 1px solid var(--border-color);
     box-shadow: var(--glass-shadow);
-    transition: left var(--transition-smooth), visibility var(--transition-smooth);
+
+    transform: translateX(-100%);
+    transition: transform var(--transition-smooth);
+
     display: flex;
     flex-direction: column;
+
     visibility: hidden;
     pointer-events: none;
 }
 
 @media (max-width: 480px) {
     .cart-drawer {
-        left: -100%;
         max-width: 100%;
     }
 }
 
 .cart-drawer.active {
-    left: 0;
+    transform: translateX(0);
     visibility: visible;
     pointer-events: all;
 }
@@ -1866,23 +1869,28 @@ button, input, select, textarea {
 .mobile-drawer {
     position: fixed;
     top: 0;
-    right: -280px; /* Hide by shifting right */
+    right: 0;
     bottom: 0;
     width: 280px;
+    max-width: 100%;
     z-index: 201;
     background: var(--bg-surface);
     backdrop-filter: blur(var(--glass-blur));
     border-left: 1px solid var(--border-color);
     box-shadow: var(--glass-shadow);
-    transition: right var(--transition-smooth), visibility var(--transition-smooth);
+
+    transform: translateX(100%);
+    transition: transform var(--transition-smooth);
+
     display: flex;
     flex-direction: column;
+
     visibility: hidden;
     pointer-events: none;
 }
 
 .mobile-drawer.active {
-    right: 0;
+    transform: translateX(0);
     visibility: visible;
     pointer-events: all;
 }
