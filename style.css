@@ -59,11 +59,15 @@
     -webkit-font-smoothing: antialiased;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 body {
     background-color: var(--bg-base);
     color: var(--text-primary);
     min-height: 100vh;
-    overflow-x: hidden;
     transition: background-color var(--transition-smooth), color var(--transition-smooth);
     display: flex;
     flex-direction: column;
