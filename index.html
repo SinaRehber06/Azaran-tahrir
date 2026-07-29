@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آذران تحریر | فروشگاه آنلاین نوشت‌افزار و لوازم هنری</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="فروشگاه آنلاین آذران تحریر - ارائه‌دهنده مدرن‌ترین نوشت‌افزار، لوازم تحریر، ابزارهای طراحی و لوازم هنری با کیفیت بی نظیر و ارسال سریع">
+    <meta name="keywords" content="لوازم تحریر, نوشت افزار, دفترچه چرمی, روان نویس لوکس, لوازم هنری, آذران تحریر, خرید لوازم تحریر">
+    
+    <!-- Google Fonts: Vazirmatn for Persian typography & Inter for numbers/latin -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Vazirmatn:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Background glows for premium dynamic ambiance -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-container container">
+            <div class="header-logo" id="nav-logo">
+                <div class="logo-icon">
+                    <i data-lucide="pen-tool"></i>
+                </div>
+                <span class="logo-text">آذران تحریر</span>
+            </div>
+
+            <!-- Modern Search Bar -->
+            <div class="search-wrapper">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="search-input" placeholder="جستجوی دفترچه، روان‌نویس، ابزار طراحی..." autocomplete="off">
+                <div id="search-results" class="search-results-dropdown hidden"></div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="nav-links">
+                <a href="#" class="nav-item active" data-page="home">صفحه اصلی</a>
+                <a href="#" class="nav-item" data-page="products">محصولات</a>
+                <a href="#" class="nav-item" data-page="about">درباره ما</a>
+            </nav>
+
+            <!-- Actions (Cart, Login, Theme) -->
+            <div class="header-actions">
+                <button class="action-btn" id="theme-toggle" title="تغییر تم">
+                    <i data-lucide="moon" class="theme-icon-dark"></i>
+                    <i data-lucide="sun" class="theme-icon-light hidden"></i>
+                </button>
+                
+                <button class="action-btn cart-trigger" id="cart-btn">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-badge hidden" id="cart-count">۰</span>
+                </button>
+
+                <button class="login-btn btn btn-primary" id="login-nav-btn" data-page="login">
+                    <i data-lucide="user"></i>
+                    <span>ورود / ثبت‌نام</span>
+                </button>
+
+                <!-- User profile badge (hidden initially) -->
+                <div class="user-profile-badge hidden" id="user-profile">
+                    <div class="avatar" id="user-avatar">آ</div>
+                    <span class="username" id="user-display-name">آذران</span>
+                    <button class="logout-btn" id="logout-btn" title="خروج">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="menu-toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="mobile-drawer-header">
+            <span class="logo-text">آذران تحریر</span>
+            <button class="close-btn" id="mobile-drawer-close">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="mobile-drawer-content">
+            <a href="#" class="mobile-nav-item active" data-page="home">صفحه اصلی</a>
+            <a href="#" class="mobile-nav-item" data-page="products">محصولات</a>
+            <a href="#" class="mobile-nav-item" data-page="about">درباره ما</a>
+            <div class="mobile-drawer-actions">
+                <button class="btn btn-primary w-full" id="mobile-login-btn" data-page="login">ورود / ثبت‌نام</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="main-content" id="main-content">
+        <!-- Views will be dynamically loaded here by app.js -->
+    </main>
+
+    <!-- Shopping Cart Sidebar Drawer (Slides out from left) -->
+    <div class="cart-drawer-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <div class="cart-header-title">
+                <i data-lucide="shopping-cart"></i>
+                <span>سبد خرید شما</span>
+            </div>
+            <button class="close-btn" id="cart-close">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cart-items-container">
+            <!-- Empty Cart State -->
+            <div class="empty-cart" id="empty-cart-state">
+                <i data-lucide="shopping-bag" class="empty-cart-icon"></i>
+                <p>سبد خرید شما در حال حاضر خالی است.</p>
+                <button class="btn btn-primary" id="cart-shop-now">شروع خرید</button>
+            </div>
+        </div>
+
+        <div class="cart-footer hidden" id="cart-footer">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>جمع کل اقلام:</span>
+                    <span id="cart-subtotal">۰ تومان</span>
+                </div>
+                <div class="summary-row">
+                    <span>هزینه ارسال:</span>
+                    <span class="free-shipping">رایگان</span>
+                </div>
+                <hr class="summary-divider">
+                <div class="summary-row total">
+                    <span>مبلغ قابل پرداخت:</span>
+                    <span id="cart-total">۰ تومان</span>
+                </div>
+            </div>
+            <button class="btn btn-primary w-full checkout-btn" id="checkout-btn-action">
+                <span>تکمیل خرید و ثبت سفارش</span>
+                <i data-lucide="arrow-left"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Product Quick View Modal -->
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal-content glass-card">
+            <button class="close-btn modal-close" id="modal-close-btn">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-grid" id="modal-detail-container">
+                <!-- Dynamically filled by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-content glass-card checkout-modal-content">
+            <button class="close-btn modal-close" id="checkout-modal-close">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="checkout-success" id="checkout-success-view">
+                <!-- Populated on success -->
+            </div>
+            <div class="checkout-form-container" id="checkout-form-view">
+                <h2>جزئیات ارسال و پرداخت</h2>
+                <form id="checkout-form" class="checkout-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkout-name">نام و نام خانوادگی</label>
+                            <input type="text" id="checkout-name" required placeholder="مثال: علی حسینی">
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout-phone">شماره موبایل</label>
+                            <input type="tel" id="checkout-phone" required placeholder="مثال: 09123456789">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout-address">آدرس کامل پستی</label>
+                        <textarea id="checkout-address" rows="3" required placeholder="تهران، خیابان ولیعصر..."></textarea>
+                    </div>
+                    <div class="payment-method-selection">
+                        <label>روش پرداخت</label>
+                        <div class="payment-options">
+                            <label class="payment-option active">
+                                <input type="radio" name="payment" value="online" checked>
+                                <i data-lucide="credit-card"></i>
+                                <span>پرداخت آنلاین (شبیه‌سازی کارت شتاب)</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cod">
+                                <i data-lucide="truck"></i>
+                                <span>پرداخت در محل</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="card-simulation" id="card-simulation-section">
+                        <div class="bank-card">
+                            <div class="card-chip"></div>
+                            <div class="card-logo">شتاب</div>
+                            <div class="card-number-display" id="card-number-preview">•••• •••• •••• ••••</div>
+                            <div class="card-details">
+                                <div class="card-holder">
+                                    <span class="label">دارنده کارت</span>
+                                    <span class="val" id="card-holder-preview">نام شما</span>
+                                </div>
+                                <div class="card-expiry">
+                                    <span class="label">انقضا</span>
+                                    <span class="val">۱۴۱۰ / ۰۸</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-number">شماره کارت ۱۶ رقمی</label>
+                                <input type="text" id="card-number" maxlength="19" placeholder="۶۰۳۷ ۹۹۱۹ •••• ••••">
+                            </div>
+                            <div class="form-group" style="flex: 0 0 100px;">
+                                <label for="card-cvv2">CVV2</label>
+                                <input type="password" id="card-cvv2" maxlength="4" placeholder="•••">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full submit-order-btn">
+                        <span>پرداخت و نهایی کردن سفارش</span>
+                        <i data-lucide="check-circle-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <div class="footer-logo">
+                    <i data-lucide="pen-tool"></i>
+                    <span>آذران تحریر</span>
+                </div>
+                <p class="brand-desc">هنر نوشتن و طراحی را با اصیل‌ترین نوشت‌افزارها تجربه کنید. آذران تحریر پلی میان خلاقیت شما و دنیای رنگ‌ها و نقش‌هاست.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="social-icon"><i data-lucide="twitter"></i></a>
+                    <a href="#" class="social-icon"><i data-lucide="send"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>دسترسی سریع</h4>
+                <ul>
+                    <li><a href="#" class="footer-nav-link" data-page="home">صفحه اصلی</a></li>
+                    <li><a href="#" class="footer-nav-link" data-page="products">فروشگاه نوشت‌افزار</a></li>
+                    <li><a href="#" class="footer-nav-link" data-page="about">درباره آذران تحریر</a></li>
+                    <li><a href="#" class="footer-nav-link" data-page="login">حساب کاربری</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>دسته‌بندی‌های محبوب</h4>
+                <ul>
+                    <li><a href="#" class="footer-category-link" data-category="notebook">دفترچه و سالنامه لوکس</a></li>
+                    <li><a href="#" class="footer-category-link" data-category="pen">قلم و خودنویس نفیس</a></li>
+                    <li><a href="#" class="footer-category-link" data-category="art">لوازم نقاشی و آبرنگ</a></li>
+                    <li><a href="#" class="footer-category-link" data-category="pencil">مدادهای طراحی حرفه‌ای</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h4>تماس با ما</h4>
+                <p><i data-lucide="map-pin"></i> تهران، خیابان ولیعصر، نرسیده به میدان ونک، پلاک ۱۲۴۰</p>
+                <p><i data-lucide="phone"></i> ۰۲۱-۸۸۸۸۴۳۲۱</p>
+                <p><i data-lucide="mail"></i> info@azarantahrir.ir</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>© ۱۴۰۵ آذران تحریر. تمامی حقوق محفوظ است. طراحی شده با عشق و خلاقیت.</p>
+                <div class="payment-trust-logos">
+                    <div class="trust-badge">نماد الکترونیکی</div>
+                    <div class="trust-badge">پرداخت امن شتاب</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>

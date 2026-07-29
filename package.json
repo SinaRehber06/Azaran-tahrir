@@ -1,0 +1,11 @@
+{
+  "name": "azaran-tahrir",
+  "version": "1.0.0",
+  "description": "Premium Persian Stationery Store Website",
+  "main": "app.js",
+  "scripts": {
+    "dev": "npx -y serve ."
+  },
+  "author": "Antigravity",
+  "license": "ISC"
+}
